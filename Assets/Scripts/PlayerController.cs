@@ -5,27 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public InputManager inputManager;
+
     [SerializeField] private float playerSpeed;
+    [SerializeField] private float runSpeed;
+
+    [SerializeField] private float jumpForce;
+
     [SerializeField] private Rigidbody rb;
 
     private Vector2 direction;
-    
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        rb.velocity = direction * playerSpeed;
-    }
-
-    public void PlayerMoviment(InputAction.CallbackContext value)
-    {
-        direction = value.ReadValue<Vector2>();
-    }
 }
